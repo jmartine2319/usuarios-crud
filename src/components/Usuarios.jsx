@@ -22,7 +22,7 @@ export default function Usuarios() {
       <div className="card__hdr">
         <h1>Usuarios</h1>
         <div className="botonCrear">
-            <Link to="/crearUsuarios" className="btn">Crear nuevo usuario</Link>
+            <Link to="/login" className="btn">Crear nuevo usuario</Link>
         </div>
         
       </div>
