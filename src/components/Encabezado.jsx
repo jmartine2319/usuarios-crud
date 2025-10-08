@@ -1,22 +1,32 @@
 import { Link } from 'react-router';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './Encabezado.css';
+import { useAuth } from '../contexts/AuthContext.jsx';
 export default function Encabezado() {
+    const { user, logout } = useAuth();
+    console.log('Usuario en Encabezado:', user);
     return (
          <header>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">Menu</a>
-                    <span className="navbar-toggler-icon"></span>
-                    <div id="navbarNavAltMarkup">
-                        <div>
-                            <a className="nav-link active" aria-current="page" href="/usuarios">Usuarios</a>
-                            <br></br>
-                            <a className="nav-link" href="/crearUsuarios">Crear Usuarios</a>
-                            <br></br>
-                        </div>
+            {
+                user ? (
+                <nav>
+                    <div className="encabezado-container">
+                        <a >Bienvenido {user.email}</a>
+                        <span className=""></span>
+                        
+                        <a className="" aria-current="page" href="/usuarios">Consultar Usuarios</a>
+
+                        <a className="" href="/crearUsuarios">Crear Usuarios</a>
+                        
+                        <a className="cerrar-sesion" href="/login" onClick={logout}>Cerrar sesion</a>
                     </div>
-                </div>
-            </nav>
+                </nav>
+                ) : (
+                    <div className="alert alert-warning" role="alert">
+                        Por favor, inicie sesión para ver el menú.
+                        <a className="nav-link active" aria-current="page" href="/login">Iniciar sesion</a>
+                    </div>
+                )
+            }
         </header>
     );
 }
