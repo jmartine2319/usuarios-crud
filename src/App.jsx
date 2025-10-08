@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { BrowserRouter,NavLink, Routes, Route } from 'react-router';
-import Usuarios from './components/usuarios.jsx';
+import Usuarios from './components/Usuarios.jsx';
 import CrearUsuarios from './components/CrearUsuarios.jsx';
 import EditarUsuario from './components/EditarUsuario.jsx';
 import Encabezado from './components/Encabezado.jsx';
