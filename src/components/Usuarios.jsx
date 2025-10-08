@@ -18,7 +18,7 @@ export default function Usuarios() {
         setUsuarios(usuarios);
     }, []);
   return (
-    <div className='tarjetaUser'>
+    <div className='tarjeta-user'>
       <div className="card__hdr">
         <h1>Usuarios</h1>
         <div className="botonCrear">

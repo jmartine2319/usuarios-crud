@@ -1,4 +1,16 @@
+
 .login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("https://electrolomas.com/wp-content/uploads/2023/02/Descubriendo-los-circuitos-electronicos-flexibles-Electrolomas.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.login-page{
     max-width: 400px;
     margin: 50px auto;
     padding: 20px;
@@ -6,3 +18,11 @@
     border-radius: 5px;
     background-color: #f9f9f9;
 }
+.login-image{
+    max-height: 100vh;
+    width: auto;
+}
+img{
+    height: 750px;
+}
+
