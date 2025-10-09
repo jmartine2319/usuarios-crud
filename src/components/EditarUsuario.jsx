@@ -1,8 +1,9 @@
-import { useParams,useLocation } from "react-router";
+import { useParams,useLocation,useNavigate } from "react-router";
 import { gestionUsuarios } from "../hooks/useUsers";
 import { useState } from "react";
 import "./EditarUsuario.css"
 export default function EditarUsuario() {
+    const navigate = useNavigate();
     const location = useLocation();
     const usuario = location.state;
     const { modificarUsuario } = gestionUsuarios();
@@ -17,13 +18,15 @@ export default function EditarUsuario() {
         e.preventDefault();
         if(!identificacion.trim() || !nombre.trim()) return alert("Todos los campos son obligatorios");
         modificarUsuario({ identificacion, nombre, correo, telefono, direccion });
-        //editarUsuario(e);
+        alert(`Usuario modificado exitosamente Nombre: ${nombre} !`);
+        navigate('/usuarios');
     }
 
     return (
         <div>
-            <h1>Editar Usuario</h1>
-            <p>ID del usuario: {id} nombre {usuario?.correo}</p>
+            <div className="titulo_usuario">
+                <h1>Editar Usuario</h1>
+            </div>
             <form onSubmit={submit} className="editar-usuario">
                 <label>
                     Identificación: <input type="text" name="identificacion" value={identificacion} onChange={(e) => setIdentificacion(e.target.value)} />
@@ -40,7 +43,10 @@ export default function EditarUsuario() {
                 <label>
                     Correo: <input type="email" name="correo" value={correo} onChange={(e) => setCorreo(e.target.value)} />
                 </label>
+                <br/>
+                <button type="button" onClick={() => navigate('/usuarios')}>Cancelar</button>
                 <button type="submit">Guardar</button>
+                
             </form>
         </div>
     );

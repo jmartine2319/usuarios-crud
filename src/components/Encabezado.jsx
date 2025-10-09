@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import './Encabezado.css';
+import { NavLink } from 'react-router';
 import { useAuth } from '../contexts/AuthContext.jsx';
 export default function Encabezado() {
     const { user, logout } = useAuth();
@@ -12,12 +13,9 @@ export default function Encabezado() {
                     <div className="encabezado-container">
                         <a >Bienvenido {user.email}</a>
                         <span className=""></span>
-                        
-                        <a className="" aria-current="page" href="/usuarios">Consultar Usuarios</a>
-
-                        <a className="" href="/crearUsuarios">Crear Usuarios</a>
-                        
-                        <a className="cerrar-sesion" href="/login" onClick={logout}>Cerrar sesion</a>
+                        <NavLink to="/usuarios">Consultar Usuarios</NavLink>
+                        <NavLink to="/crearUsuarios">Crear Usuarios</NavLink>
+                        <a className="cerrar-sesion" onClick={logout}><NavLink to="/login">Cerrar sesion</NavLink></a>
                     </div>
                 </nav>
                 ) : (
