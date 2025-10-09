@@ -22,7 +22,7 @@ export default function CrearUsuarios() {
   return (
 
     <div className="tarjeta">
-      <div className="titulo_usuario">
+      <div className="titulo_crear">
         <h1>Crear Usuarios</h1>
       </div>
       <div>

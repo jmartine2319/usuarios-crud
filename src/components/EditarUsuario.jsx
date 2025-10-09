@@ -24,7 +24,7 @@ export default function EditarUsuario() {
 
     return (
         <div>
-            <div className="titulo_usuario">
+            <div className="titulo_editar">
                 <h1>Editar Usuario</h1>
             </div>
             <form onSubmit={submit} className="editar-usuario">
