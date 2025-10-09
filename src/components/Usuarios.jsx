@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { gestionUsuarios } from "../hooks/useUsers";
-import { Link, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import "./Usuarios.css";
 export default function Usuarios() {
     const navigate = useNavigate();
@@ -19,31 +19,44 @@ export default function Usuarios() {
     }, []);
   return (
     <div className='tarjeta-user'>
-      <div className="card__hdr">
+      <div className="titulo_usuario">
         <h1>Usuarios</h1>
-        <div className="botonCrear">
-            <Link to="/login" className="btn">Crear nuevo usuario</Link>
-        </div>
+        <br></br>
+        <button className="boton_crear_p" onClick={() => navigate('/crearUsuarios')}>
+            Crear nuevo usuario
+        </button>
         
       </div>
-        <ul className='grid'>
+      <div className='usuarios-table-container'>
+        <table className="usuarios-table">
+            <thead>
+                <tr>
+                    <th>Identificacion</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
             {
                 usuarios.map((u)=>(
-                    <li key={u.id} className='item'>
-                        <div >
-                            <h2>{u.nombre}</h2>
-                            <p>{u.correo}</p>
-                        </div>
-                        <div>
+
+                    <tr key={u.id} className="usuarios-fila">
+                        <td>{u.identificacion}</td>
+                        <td>{u.nombre}</td>
+                        <td>{u.correo}</td>
+                        <td>
                             <button className="btn btn--primary" onClick={() => navigate(`/editarUsuarios/${u.identificacion}`, { state: u })}>Editar</button>
                             <button className="btn btn--danger" onClick={() => borrarUsuario(u.identificacion)}>Eliminar</button>
-
-                        </div>
-                    </li>
+                        </td>
+                    </tr>
+                    
                 )
                 )
             }
-        </ul>
+            </tbody>
+        </table>
+      </div>
     </div>
   );
 }

@@ -35,7 +35,7 @@ input{
   width: 300px;
 }
 
-button {
+.boton_crear {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -50,6 +50,22 @@ button {
   color:white;
   margin:20px;
 }
-button:hover {
+.boton_crear:hover {
   border-color: #6c72f1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  background-color: #0e4281;
+  width: 100px;
+  color:white;
+  margin:20px;
 }

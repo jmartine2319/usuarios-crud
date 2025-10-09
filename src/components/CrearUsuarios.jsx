@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { gestionUsuarios } from "../hooks/useUsers";
+import { useNavigate } from 'react-router';
 import "./CrearUsuarios.css"
 export default function CrearUsuarios() {
   const { guardarUsuario } = gestionUsuarios();
@@ -8,21 +9,22 @@ export default function CrearUsuarios() {
   const [correo, setCorreo] = useState("");
   const [telefono, setTelefono] = useState("");
   const [direccion, setDireccion] = useState("");
+  const navigate = useNavigate();
 
   const submit = (e) => {
     console.log('crear user')
     e.preventDefault();
     if(!identificacion.trim() || !nombre.trim() || !correo.trim() || !telefono.trim() || !direccion.trim()) return alert("Todos los campos son obligatorios");
-    alert(`Nombre: ${nombre}, Correo: ${correo}, Telefono: ${telefono}, Direccion: ${direccion}`);
+    alert(`Usuario creado exitosamente Nombre: ${nombre} !`);
     guardarUsuario({identificacion, nombre, correo, telefono, direccion });
-    // Aquí puedes manejar la creación del nuevo usuario
+    navigate('/usuarios');
  }
   return (
 
     <div className="tarjeta">
-
-      <h1>Crear Usuarios</h1>
-
+      <div className="titulo_usuario">
+        <h1>Crear Usuarios</h1>
+      </div>
       <div>
 
         <form onSubmit={submit} className="crear-usuario">
@@ -55,8 +57,9 @@ export default function CrearUsuarios() {
             <input type="text" name="direccion" 
             onChange={(e) => setDireccion(e.target.value)}/>
           </label>
-
-          <button type="submit">Crear</button>
+          <br/>
+          <button onClick={() => navigate('/usuarios')}>Cancelar</button>
+          <button className='boton_crear' type="submit">Crear</button>
         </form>
 
       </div>
