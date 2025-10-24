@@ -1,0 +1,57 @@
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 meses por fila */
+  gap: 16px;
+  align-items: start;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* tarjeta por mes */
+.mes-card {
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  padding: 1px;
+  min-width: 0; /* importante para evitar overflow en grid */
+  overflow: hidden;
+  font-size: 1.1rem;
+}
+
+/* título del mes */
+.mes-card h2 {
+  margin: 0 0 8px;
+  text-align: center;
+  color: #0d47a1; /* azul oscuro */
+  font-size: 1.1rem;
+}
+
+/* tabla del mes */
+.usuarios-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 200px;
+  table-layout: fixed;
+}
+
+.usuarios-table th {
+  background: #0d47a1; /* azul oscuro */
+  color: #fff;
+  padding: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.usuarios-table td {
+  padding: 8px 6px;
+  background: #e3f2fd; /* azul claro filas */
+  color: #0b2a5a;
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+}
+
+/* filas alternas un tono distinto (opcional) */
+.usuarios-table tr:nth-child(even) td {
+  background: #d9eaff;
+}

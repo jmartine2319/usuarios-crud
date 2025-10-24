@@ -5,6 +5,7 @@ import Usuarios from './components/Usuarios.jsx';
 import CrearUsuarios from './components/CrearUsuarios.jsx';
 import EditarUsuario from './components/EditarUsuario.jsx';
 import Encabezado from './components/Encabezado.jsx';
+import Calendario from './components/Calendario.jsx';
 import Login from './components/Login.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth, AuthProvider } from './contexts/AuthContext.jsx';
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/usuarios" element={<Usuarios />} />
                 <Route path="/crearUsuarios" element={<CrearUsuarios />} />
                 <Route path="/editarUsuarios/:id" element={<EditarUsuario actualizarUsuario={usuarioUpdate} />} />
+                <Route path="/festivos" element={<Calendario />} />
               </Routes>
             </main>
         </div>

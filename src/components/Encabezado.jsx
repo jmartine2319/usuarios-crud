@@ -15,6 +15,7 @@ export default function Encabezado() {
                         <span className=""></span>
                         <NavLink to="/usuarios">Consultar Usuarios</NavLink>
                         <NavLink to="/crearUsuarios">Crear Usuarios</NavLink>
+                        <NavLink to="/festivos">Festivos Colombia</NavLink>
                         <a className="cerrar-sesion" onClick={logout}><NavLink to="/login">Cerrar sesion</NavLink></a>
                     </div>
                 </nav>
